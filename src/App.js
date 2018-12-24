@@ -1,15 +1,10 @@
 import React from 'react';
-import {
-    Button,
-    Col,
-    Collapse,
-    Container,
-    Jumbotron,
-    Navbar,
-    NavbarToggler,
-    NavbarBrand,
-    Row
-} from 'reactstrap';
+import { Button, Container, Jumbotron } from 'reactstrap';
+import Header from './components/Header';
+import Album from './components/Album';
+import album from './data/album';
+import socialLinks from './data/socialLinks';
+import './App.css';
 
 export default class Example extends React.Component {
     constructor(props) {
@@ -17,7 +12,9 @@ export default class Example extends React.Component {
 
         this.toggleNavbar = this.toggleNavbar.bind(this);
         this.state = {
-            collapsed: true
+            collapsed: true,
+            socialLinks: socialLinks,
+            album: album
         };
     }
 
@@ -29,68 +26,11 @@ export default class Example extends React.Component {
     render() {
         return (
             <div>
-                <header>
-                    <Navbar color="dark" dark>
-                        <Container>
-                            <Collapse isOpen={!this.state.collapsed} navbar>
-                                <Row>
-                                    <Col sm="8" md="7" className="py-4">
-                                        <h4 className="text-white">About</h4>
-                                        <p className="text-muted">
-                                            Add some information about the album
-                                            below, the author, or any other
-                                            background context. Make it a few
-                                            sentences long so folks can pick up
-                                            some informative tidbits. Then, link
-                                            them off to some social networking
-                                            sites or contact information.
-                                        </p>
-                                    </Col>
-                                    <Col
-                                        sm="4"
-                                        md={{ offset: 1 }}
-                                        className="py-4"
-                                    >
-                                        <h4 className="text-white">Contact</h4>
-                                        <ul className="list-unstyled">
-                                            <li>
-                                                <a
-                                                    href="#"
-                                                    className="text-white"
-                                                >
-                                                    Follow on Twitter
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a
-                                                    href="#"
-                                                    className="text-white"
-                                                >
-                                                    Like on Facebook
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a
-                                                    href="#"
-                                                    className="text-white"
-                                                >
-                                                    Email me
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </Col>
-                                </Row>
-                            </Collapse>
-                            <NavbarBrand href="/" className="mr-auto">
-                                <strong>Album</strong>
-                            </NavbarBrand>
-                            <NavbarToggler
-                                onClick={this.toggleNavbar}
-                                className="mr-2"
-                            />
-                        </Container>
-                    </Navbar>
-                </header>
+                <Header
+                    collapsed={this.state.collapsed}
+                    toggleNavbar={this.toggleNavbar}
+                    socialLinks={this.state.socialLinks}
+                />
                 <main role="main">
                     <Jumbotron className="text-center">
                         <Container>
@@ -102,7 +42,7 @@ export default class Example extends React.Component {
                                 don't simply skip over it entirely.
                             </p>
                             <p>
-                                <Button color="primary" className="my-2">
+                                <Button color="primary" className="mx-1 my-2">
                                     Main call to action
                                 </Button>
                                 <Button color="secondary" className="my-2">
@@ -111,6 +51,7 @@ export default class Example extends React.Component {
                             </p>
                         </Container>
                     </Jumbotron>
+                    <Album album={this.state.album} />
                 </main>
             </div>
         );
