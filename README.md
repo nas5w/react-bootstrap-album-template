@@ -18,6 +18,6 @@ To use the application, you can simply use node to start the React app:
 npm start
 ```
 
-Navigate to `http://localhost:3000` and you'll see your mirror application in all its glory!
+Navigate to `http://localhost:3000` and you'll see your application in all its glory!
 
 ![React Bootstrap Album](https://i.imgur.com/yrTjTnz.png)
