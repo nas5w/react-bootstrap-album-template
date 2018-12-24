@@ -16,9 +16,9 @@ const Album = ({ album }) => {
         <div className="album py-5 bg-light">
             <Container>
                 <Row>
-                    {album.map(item => {
+                    {album.map((item, key) => {
                         return (
-                            <Col md="4">
+                            <Col md="4" key={key}>
                                 <Card className="mb-4 box-shadow">
                                     <CardImg
                                         top
