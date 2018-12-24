@@ -14,10 +14,7 @@ npm i
 
 To use the application, you can simply use node to start the React app:
 
-server:
-
 ```bash
-cd server
 npm start
 ```
 
